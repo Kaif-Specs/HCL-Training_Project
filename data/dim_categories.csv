@@ -1,0 +1,9 @@
+category_id,category_name,expense_nature,default_payment_mode,monthly_budget_allocation
+CAT-01,Cloud Infrastructure,OpEx,Debit/NetBanking,450000.0
+CAT-02,Payroll & Compensation,OpEx,Debit/NetBanking,1200000.0
+CAT-03,Employee Travel & Lodging,OpEx,Corporate Credit Card,250000.0
+CAT-04,SaaS Software Subscriptions,OpEx,Corporate Credit Card,350000.0
+CAT-05,Office Lease & Utilities,OpEx,Debit/NetBanking,300000.0
+CAT-06,Hardware & IT Equipment,CapEx,Either,400000.0
+CAT-07,Vendor & Professional Services,OpEx,Debit/NetBanking,500000.0
+CAT-08,Marketing & Advertising,OpEx,Corporate Credit Card,200000.0

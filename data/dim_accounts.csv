@@ -1,0 +1,9 @@
+account_id,account_number_masked,bank_name,account_type,sanctioned_credit_limit,billing_cycle_day,currency,status
+ACC-HDFC-01,XXXX-XXXX-XXXX-4123,HDFC Bank,Current Checking,0.0,1,INR,Active
+ACC-HDFC-02,XXXX-XXXX-XXXX-8910,HDFC Bank,Corporate Credit Card,2500000.0,20,INR,Active
+ACC-ICICI-01,XXXX-XXXX-XXXX-1122,ICICI Bank,Current Checking,0.0,1,INR,Active
+ACC-ICICI-02,XXXX-XXXX-XXXX-3344,ICICI Bank,Corporate Credit Card,1500000.0,15,INR,Active
+ACC-SBI-01,XXXX-XXXX-XXXX-5566,SBI,Current Checking,0.0,1,INR,Active
+ACC-SBI-02,XXXX-XXXX-XXXX-7788,SBI,Corporate Credit Card,1000000.0,25,INR,Active
+ACC-AXIS-01,XXXX-XXXX-XXXX-9900,Axis Bank,Current Checking,0.0,1,INR,Active
+ACC-AXIS-02,XXXX-XXXX-XXXX-2233,Axis Bank,Corporate Credit Card,750000.0,10,INR,Suspended

@@ -1,0 +1,26 @@
+merchant_id,merchant_name,merchant_category_code,vendor_tier,city,country
+MER-01,Amazon Web Services India,7372,Tier-1 Strategic,Bengaluru,India
+MER-02,Microsoft Azure India,7372,Tier-1 Strategic,Gurugram,India
+MER-03,Google Cloud India,7372,Tier-1 Strategic,Mumbai,India
+MER-04,MakeMyTrip Corporate,4722,Tier-2 Preferred,Gurugram,India
+MER-05,Uber for Business India,4121,Tier-2 Preferred,Mumbai,India
+MER-06,Swiggy Corporate Cafeteria,5812,Tier-3 Standard,Bengaluru,India
+MER-07,WeWork India Noida,6513,Tier-1 Strategic,Noida,India
+MER-08,Dell Technologies India,5045,Tier-1 Strategic,Bengaluru,India
+MER-09,Lenovo India Enterprise,5045,Tier-2 Preferred,Mumbai,India
+MER-10,Tata Communications Ltd,4816,Tier-1 Strategic,Mumbai,India
+MER-11,Airtel Enterprise Solutions,4814,Tier-1 Strategic,Gurugram,India
+MER-12,Zoho Corporation,7372,Tier-2 Preferred,Chennai,India
+MER-13,Freshworks India,7372,Tier-2 Preferred,Chennai,India
+MER-14,LinkedIn Talent Solutions,7311,Tier-2 Preferred,,India
+MER-15,Deloitte Consulting India,8931,Tier-1 Strategic,Gurugram,India
+MER-16,Ernst & Young Advisory,8931,Tier-1 Strategic,Noida,India
+MER-17,Urban Company Enterprise,7349,Tier-3 Standard,Noida,India
+MER-18,Blue Dart Express,4215,Tier-2 Preferred,Mumbai,India
+MER-19,Reliance Jio Infocomm,4814,Tier-1 Strategic,Mumbai,India
+MER-20,Razorpay Payment Gateway,7372,Tier-1 Strategic,Bengaluru,India
+MER-21,Info Edge India (Naukri),7311,Tier-2 Preferred,Noida,India
+MER-22,Croma Enterprise Retail,5732,Tier-3 Standard,,India
+MER-23,Urban Ladder Commercial,5712,Tier-3 Standard,Bengaluru,India
+MER-24,Tata Power Solar DDL,4900,Tier-1 Strategic,Noida,India
+MER-25,Adobe Systems India,7372,Tier-2 Preferred,,India
