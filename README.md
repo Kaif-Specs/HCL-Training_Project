@@ -97,8 +97,8 @@ flowchart TD
 ### 1. Clone & Set Up Environment
 ```powershell
 # Clone the repository
-git clone https://github.com/2503201450093-credit-debit-analytics.git
-cd 2503201450093-credit-debit-analytics
+git clone https://github.com/Kaif-Specs/HCL-Training_Project.git
+cd HCL-Training_Project
 
 # Create and activate Python virtual environment
 python -m venv .venv
