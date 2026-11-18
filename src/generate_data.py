@@ -15,12 +15,14 @@ import zipfile
 import xml.sax.saxutils as saxutils
 import numpy as np
 
+from pathlib import Path
+
 # Set deterministic random seed
 SEED = 42
 random.seed(SEED)
 np.random.seed(SEED)
 
-PROJECT_DIR = r"d:\HCL_Project"
+PROJECT_DIR = str(Path(__file__).resolve().parent.parent)
 DATA_DIR = os.path.join(PROJECT_DIR, "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 

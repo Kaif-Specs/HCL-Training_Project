@@ -8,8 +8,10 @@ Compatible with both pytest and python -m unittest.
 import os
 import sqlite3
 import unittest
+from pathlib import Path
 
-DB_PATH = os.path.join(r"d:\HCL_Project", "data", "app.db")
+ROOT_DIR = Path(__file__).resolve().parent.parent
+DB_PATH = str(ROOT_DIR / "data" / "app.db")
 
 class TestDatabaseIntegrity(unittest.TestCase):
     def setUp(self):

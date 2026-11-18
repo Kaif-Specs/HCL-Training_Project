@@ -10,9 +10,10 @@ import time
 import sqlite3
 import unittest
 import sys
+from pathlib import Path
 
-# Ensure src is importable
-PROJECT_DIR = r"d:\HCL_Project"
+# Ensure root workspace is importable using dynamic relative path
+PROJECT_DIR = str(Path(__file__).resolve().parent.parent)
 if PROJECT_DIR not in sys.path:
     sys.path.insert(0, PROJECT_DIR)
 
