@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>Step 01 - Project Understanding Document</title>
+<style>
+@page {
+    size: A4 portrait;
+    margin: 1in;
+}
+body { 
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif; 
+    font-size: 11pt; 
+    line-height: 1.5; 
+    color: #1e293b; 
+    margin: 20px; 
+}
+h1 { 
+    color: #0f172a; 
+    font-size: 18pt; 
+    border-bottom: 2px solid #2563eb; 
+    padding-bottom: 6px; 
+    margin-top: 24px; 
+}
+h2 { 
+    color: #1e40af; 
+    font-size: 14pt; 
+    margin-top: 20px; 
+    border-bottom: 1px solid #cbd5e1; 
+    padding-bottom: 4px; 
+}
+h3 { 
+    color: #1e293b; 
+    font-size: 12pt; 
+    margin-top: 14px; 
+}
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 14px 0; 
+    font-size: 10pt; 
+}
+th { 
+    background-color: #1e40af; 
+    color: #ffffff; 
+    text-align: left; 
+    padding: 8px 10px; 
+    border: 1px solid #1e3a8a; 
+}
+td { 
+    padding: 8px 10px; 
+    border: 1px solid #cbd5e1; 
+    vertical-align: top; 
+}
+tr:nth-child(even) { 
+    background-color: #f8fafc; 
+}
+.header-box {
+    text-align: center; 
+    border-bottom: 2px solid #1e40af; 
+    padding-bottom: 12px; 
+    margin-bottom: 20px;
+}
+.meta-box { 
+    background-color: #eff6ff; 
+    border-left: 4px solid #2563eb; 
+    padding: 12px 16px; 
+    margin: 15px 0; 
+}
+.meta-box table { 
+    margin: 0; 
+}
+.meta-box td { 
+    border: none; 
+    padding: 4px 8px; 
+    background: transparent; 
+}
+.problem-box { 
+    background-color: #fef2f2; 
+    border-left: 4px solid #dc2626; 
+    padding: 12px 16px; 
+    margin: 15px 0; 
+    font-weight: 500; 
+    color: #991b1b; 
+}
+.code-inline {
+    font-family: Consolas, 'Courier New', monospace;
+    background-color: #f1f5f9;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 9.5pt;
+}
+.badge { 
+    display: inline-block; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-size: 9pt; 
+    font-weight: bold; 
+}
+.badge-high { background-color: #fee2e2; color: #991b1b; }
+.badge-med { background-color: #fef3c7; color: #92400e; }
+.badge-low { background-color: #e0e7ff; color: #3730a3; }
+</style>
+</head>
+<body>
+
+<div class='header-box'>
+    <h1 style='border: none; margin-bottom: 4px; color: #1e3a8a;'>ABES ENGINEERING COLLEGE, GHAZIABAD</h1>
+    <h3 style='margin: 0; color: #475569; font-weight: normal;'>Department of Master of Computer Applications (MCA) — Data Analytics</h3>
+    <h2 style='border: none; margin-top: 10px; color: #0f172a;'>PROJECT UNDERSTANDING DOCUMENT (STEP 01)</h2>
+    <p style='margin: 4px; font-size: 10pt; color: #64748b;'>Course: MCA 2nd Year | Domain: Data Analysis | Specialization: Financial Analytics</p>
+</div>
+
+<div class='meta-box'>
+    <table>
+        <tr><td style='width: 25%; font-weight: bold;'>Project Title:</td><td>Credit vs Debit Transaction Analysis</td><td style='width: 25%; font-weight: bold;'>Target Domain:</td><td>Data Analysis / Banking & Fintech</td></tr>
+        <tr><td style='font-weight: bold;'>Student Name:</td><td>Mohd Kaif</td><td style='font-weight: bold;'>University Roll No:</td><td>2503201450093</td></tr>
+        <tr><td style='font-weight: bold;'>Academic Mentor:</td><td>Prof. Shilpa Tyagi</td><td style='font-weight: bold;'>Target Organization:</td><td>NexGen Technologies Pvt. Ltd., Noida (500 Employees)</td></tr>
+    </table>
+</div>
+
+<h2>1. Project Description</h2>
+<p>In modern corporate enterprises such as <strong>NexGen Technologies Pvt. Ltd.</strong> (a mid-sized IT consulting and software engineering firm with 500 employees located in Sector 62, Noida), financial operations handle thousands of monetary transactions every month across multiple commercial banking partners (e.g., HDFC Bank, ICICI Bank, State Bank of India). These financial workflows are fundamentally divided into two major transaction mechanisms:</p>
+<ul>
+    <li><strong>Debit Transactions:</strong> Direct outlays from corporate operating checking accounts representing immediate cash deductions (e.g., monthly payroll disbursements, cloud infrastructure invoices, office lease, statutory tax payments, and routine supplier fees). Funds leave liquid reserves instantly.</li>
+    <li><strong>Credit Transactions:</strong> Expenditures executed via corporate revolving credit cards and short-term credit facilities (e.g., employee business travel and lodging, client entertainment, SaaS software licenses, emergency hardware repairs, and digital advertising). These represent short-term debt obligations that accumulate over a monthly billing cycle and must be paid before due dates to prevent high interest penalties (up to 42% APR) and cash advance surcharges.</li>
+</ul>
+<p>The <strong>Credit vs Debit Transaction Analysis</strong> application is an interactive decision-support and business intelligence platform built using <strong>Python, Streamlit, SQLite, and Plotly</strong>. It centralizes disparate transaction streams, automatically categorizes debit vs. credit spending patterns, tracks corporate liquidity burn and credit line utilization ratios, pinpoints temporal and merchant spending concentrations, detects statistical expense anomalies, and surfaces actionable insights to executive finance managers through high-impact analytical dashboards.</p>
+
+<h2>2. Background: Current State & Problem Context</h2>
+<p>Currently at NexGen Technologies, financial records from multiple corporate credit card accounts and liquid checking accounts arrive at month-end in fragmented CSV, Excel, and scanned PDF formats. The 4-member finance operations desk relies heavily on manual Microsoft Excel workbooks, VLOOKUP formulas, and pivot tables to reconcile expenses.</p>
+<p>This manual operating model exhibits severe systemic drawbacks:</p>
+<ol>
+    <li><strong>Extreme Reporting Lag:</strong> Full reconciliation and management reporting takes between 7 to 10 business days after the close of the calendar month. During this lag, executive management operates blind to real-time liquidity changes.</li>
+    <li><strong>High Discrepancy & Error Rates:</strong> Manual cut-and-paste consolidation and unstandardized merchant descriptions introduce an estimated 10% to 15% error margin, including misclassified expense heads and undetected duplicate payments.</li>
+    <li><strong>Uncontrolled Credit Utilization:</strong> Because credit card spending is inspected retroactively, corporate credit utilization regularly breaches the recommended 70% threshold, exposing the company to steep penalty APRs and unfavorable banking terms.</li>
+    <li><strong>Delayed Anomaly & Leakage Detection:</strong> Duplicate vendor charges, off-policy employee card charges, or unusual spending surges are caught weeks later during statutory accounting reviews rather than when they occur.</li>
+    <li><strong>Siloed Visibility:</strong> Departmental heads (IT, HR, Marketing) have zero self-service visibility into their team's monthly budget consumption across liquid debit versus revolving credit.</li>
+</ol>
+
+<h2>3. Problem Statement</h2>
+<div class='problem-box'>
+"The finance operations team at NexGen Technologies experiences an unsustainable 7-to-10-day reporting latency and recurring reconciliation errors due to fragmented, manual spreadsheet processing of credit and debit banking data, preventing leadership from proactively monitoring cash burn, optimizing revolving credit utilization, and detecting anomalous financial leaks."
+</div>
+
+<h2>4. Intended Audience & User Personas</h2>
+<table>
+    <tr><th>User Persona</th><th>Role in Organization</th><th>Access Frequency</th><th>Primary Usage of the Dashboard</th></tr>
+    <tr><td><strong>Accounts Executive</strong></td><td>Junior Finance Desk Operator</td><td>Daily / Twice Weekly</td><td>Uploads transaction batches, monitors daily debit cash outflows, verifies credit charge postings, and tags anomalous or unclassified vendor expenses.</td></tr>
+    <tr><td><strong>Finance Manager / Controller</strong></td><td>Operational Finance Head</td><td>Weekly / Monthly Close</td><td>Reviews weekly burn rates, monitors credit line utilization vs. bank debit reserves, approves supplier settlements, and ensures timely credit card bill clearance.</td></tr>
+    <tr><td><strong>Chief Financial Officer (CFO)</strong></td><td>Executive Leadership</td><td>Monthly / Quarterly</td><td>Analyzes high-level cash flow trends, evaluates credit vs debit expenditure proportions, forecasts quarterly working capital needs, and renegotiates banking limits.</td></tr>
+    <tr><td><strong>Internal Auditor / Risk Lead</strong></td><td>Compliance & Risk Governance</td><td>Monthly / Audit Cycles</td><td>Scrutinizes flagged statistical anomalies (>3 sigma), verifies adherence to corporate spending policies, and cross-checks payment channel failure rates.</td></tr>
+    <tr><td><strong>Department Heads (IT / HR / Ops)</strong></td><td>Cost Center Owners</td><td>Monthly</td><td>Tracks departmental budget utilization across software subscriptions, travel, and operational procurement.</td></tr>
+</table>
+
+<h2>5. Stakeholders Analysis</h2>
+<table>
+    <tr><th>SH ID</th><th>Stakeholder</th><th>Role</th><th>Interest</th><th>Influence</th><th>Decisions Made with the Application</th></tr>
+    <tr><td><strong>SH-01</strong></td><td>Finance Controller (Noida HQ)</td><td>Project Sponsor & Operational Lead</td><td>Elimination of manual reconciliation lag, precise tracking of debit cash reserves vs. credit obligations.</td><td><span class='badge badge-high'>High</span></td><td>Approves vendor disbursements, determines exact credit balance settlement amounts to prevent interest charges, reallocates cost center budgets.</td></tr>
+    <tr><td><strong>SH-02</strong></td><td>Chief Financial Officer (CFO)</td><td>Executive Sponsor</td><td>Optimal working capital management, minimizing credit borrowing costs, and board-level financial reporting.</td><td><span class='badge badge-high'>High</span></td><td>Sets corporate credit card borrowing limits with partner banks, decides reserve capital thresholds, and authorizes capital expenditures.</td></tr>
+    <tr><td><strong>SH-03</strong></td><td>Accounts Executive / Data Operator</td><td>Primary End-User</td><td>Automated data ingestion, instant categorization, error-free reconciliation.</td><td><span class='badge badge-med'>Medium</span></td><td>Resolves transaction mismatches, contacts merchants regarding duplicate or rejected charges, flags policy breaches.</td></tr>
+    <tr><td><strong>SH-04</strong></td><td>Internal Auditor & Compliance Head</td><td>Governance & Risk Officer</td><td>Zero financial leakage, detection of duplicate billings, audit trail compliance.</td><td><span class='badge badge-high'>High</span></td><td>Initiates formal audit investigations into statistical outlier expenses, enforces corporate card spending guidelines.</td></tr>
+    <tr><td><strong>SH-05</strong></td><td>Department Heads (Engineering, HR, Sales)</td><td>Cost Center Managers</td><td>Timely visibility into departmental operational expenditure and project budget health.</td><td><span class='badge badge-med'>Medium</span></td><td>Adjusts team discretionary spending (travel, tools, team offsites) to stay within allocated monthly spending limits.</td></tr>
+</table>
+
+<h2>6. Operational Questions (OQ-01 to OQ-10)</h2>
+<p>Every operational question below maps directly to discrete columns and aggregations in the transaction database:</p>
+<table>
+    <tr><th>OQ ID</th><th>Operational Question</th><th>Underlying Data Fields</th><th>Target Metric / Output</th><th>Data Feasibility</th></tr>
+    <tr><td><strong>OQ-01</strong></td><td>What is the net monthly cash flow trend (Total Credits/Inflows vs. Total Debits/Outflows)?</td><td><span class='code-inline'>Transaction_Date, Transaction_Type, Amount</span></td><td>Monthly Net Cash Flow = &Sigma;(Credits) - &Sigma;(Debits)</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-02</strong></td><td>Which expense categories (Cloud, Travel, Payroll, SaaS, Hardware) drive the highest debit spending volume?</td><td><span class='code-inline'>Category, Transaction_Type, Amount</span></td><td>Category-wise Total Debit Volume & % Contribution</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-03</strong></td><td>What is the corporate credit card utilization percentage relative to the sanctioned credit limits?</td><td><span class='code-inline'>Account_Type, Amount, Credit_Limit, Transaction_Date</span></td><td>Credit Utilization Ratio = (Current Credit Balance / Sanctioned Limit) &times; 100</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-04</strong></td><td>What are the temporal spending patterns (peak spend by day of week, week of month, and business hours)?</td><td><span class='code-inline'>Transaction_Date, Transaction_Time, Amount</span></td><td>Heatmap / Bar chart of transaction volume by weekday and monthly cycle</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-05</strong></td><td>What proportion of total monthly expenditure is financed via revolving credit versus liquid bank debits?</td><td><span class='code-inline'>Payment_Instrument, Amount</span></td><td>Expenditure Proportion Ratio (Credit % vs Debit %)</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-06</strong></td><td>Who are the top 10 merchants/vendors by total expenditure and transaction count across both payment modes?</td><td><span class='code-inline'>Merchant_Name, Amount, Transaction_ID, Payment_Instrument</span></td><td>Ranked table & bar chart of top 10 vendors with spend and frequency</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-07</strong></td><td>Are there anomalous transactions or statistical outliers (spending exceeding 3 standard deviations above category average)?</td><td><span class='code-inline'>Transaction_ID, Category, Amount, Mean, StdDev</span></td><td>Z-Score > 3.0 / IQR Anomaly Flagged Records Table</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-08</strong></td><td>How is transaction volume distributed across payment channels (UPI, Net Banking, POS, Credit Card Gateway, NEFT)?</td><td><span class='code-inline'>Payment_Channel, Transaction_ID, Amount, Status</span></td><td>Payment Channel Distribution (Count & Value Share)</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-09</strong></td><td>What is the transaction failure/decline rate across channels, and what are the primary decline reasons?</td><td><span class='code-inline'>Status, Failure_Reason, Payment_Channel</span></td><td>Failure Rate % = (Failed Count / Total Count) &times; 100, broken by reason</td><td>100% Feasible</td></tr>
+    <tr><td><strong>OQ-10</strong></td><td>What is the Month-over-Month (MoM) expenditure growth rate across departmental cost centers?</td><td><span class='code-inline'>Department, Transaction_Date, Amount</span></td><td>MoM % Change = [(Spend_t - Spend_{t-1}) / Spend_{t-1}] &times; 100</td><td>100% Feasible</td></tr>
+</table>
+
+<h2>7. SMART Project Objectives</h2>
+<ul>
+    <li><strong>OBJ-01 (Specific & Measurable):</strong> Reduce monthly transaction reconciliation and report generation latency from 7 business days to under 5 seconds through automated SQLite database ingestion and pre-indexed analytical queries.</li>
+    <li><strong>OBJ-02 (Specific & Achievable):</strong> Deliver automated classification and interactive visual exploration for 100% of corporate credit and debit transactions across 8 core expense categories.</li>
+    <li><strong>OBJ-03 (Measurable & Time-bound):</strong> Implement statistical outlier detection to flag 100% of transactions exceeding 3 standard deviations from their category mean within the interactive dashboard.</li>
+    <li><strong>OBJ-04 (Realistic & Performance-focused):</strong> Architect a responsive Streamlit dashboard capable of executing multi-dimensional filter queries across 50,000+ transaction records in under 1.2 seconds.</li>
+    <li><strong>OBJ-05 (Relevant & Strategic):</strong> Calculate and visualize vital financial health indicators (Net Cash Flow, Credit Utilization %, Debit-to-Credit Ratio, Channel Failure Rate) with 100% computational accuracy.</li>
+</ul>
+
+<h2>8. Scope Definition</h2>
+<table>
+    <tr><th style='width: 50%;'>In-Scope (Delivered in this Project)</th><th style='width: 50%;'>Out-of-Scope (Future Enhancements)</th></tr>
+    <tr>
+        <td>
+            <ul>
+                <li>Ingestion, normalization, and relational storage of 50,000+ synthetic corporate credit and debit transactions in SQLite.</li>
+                <li>Dynamic KPI cards: Total Debit Outflow, Total Credit Spend, Net Cash Flow, Active Credit Utilization %, Outlier Count.</li>
+                <li>Comprehensive Exploratory Data Analysis (EDA) module with Plotly visual charts (donut charts, trend lines, bar charts, boxplots).</li>
+                <li>Comparative analysis of Credit vs. Debit spending volume, category breakdown, and merchant ranking.</li>
+                <li>Temporal trend analysis (daily, weekly, day-of-week, and MoM variations).</li>
+                <li>Statistical anomaly detection engine based on Z-score and IQR thresholding.</li>
+                <li>Multi-criteria filtering (Date range, Transaction type, Category, Channel, Amount range) with CSV export capability.</li>
+                <li>Automated unit test suite using <code>pytest</code> verifying data integrity, schema constraints, and business logic.</li>
+                <li>Deployment on Streamlit Community Cloud with public URL access.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Direct live integration with commercial banking core APIs (e.g., RBI Open Banking / Account Aggregator framework).</li>
+                <li>Automated fund transfer execution, payment gateway checkouts, or real-time banking wire clearing.</li>
+                <li>Multi-currency foreign exchange (Forex) real-time arbitrage and hedging models.</li>
+                <li>Enterprise Active Directory / SSO authentication (app will provide streamlined role simulation for evaluation).</li>
+                <li>Deep learning / neural network predictive models (focus is on statistical analytics, EDA, and business intelligence).</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2>9. Assumptions and Constraints</h2>
+<h3>Assumptions:</h3>
+<ul>
+    <li><strong>Currency & Locale:</strong> The target enterprise operates in India, with all financial transactions denominated in Indian Rupees (INR - &#8377;).</li>
+    <li><strong>Synthetic Data Authenticity:</strong> In accordance with academic guidelines and privacy regulations, transactions are synthetically generated to replicate realistic corporate banking distributions, seasonality, and anomaly rates without containing real PII.</li>
+    <li><strong>Temporal Horizon:</strong> The historical dataset encompasses a 24-month operational period to support robust month-over-month (MoM) and quarterly trend analytics.</li>
+    <li><strong>Account Framework:</strong> Corporate credit accounts possess pre-established credit limits, billing cycle cutoff dates, and standard fee structures.</li>
+</ul>
+<h3>Constraints:</h3>
+<ul>
+    <li><strong>Technology Constraints:</strong> Restricted to the open-source Python ecosystem (Python 3.10+, Streamlit, Pandas, NumPy, Plotly, SQLite3, Pytest).</li>
+    <li><strong>Infrastructure Constraints:</strong> Deployment is bound by Streamlit Community Cloud resource quotas (maximum 1 GB RAM, containerized Linux environment).</li>
+    <li><strong>Zero Cost Budget:</strong> Built entirely using free and open-source tools without proprietary enterprise software licenses.</li>
+    <li><strong>Academic Timeline:</strong> Execution strictly structured across 18 sequential milestones complying with ABES MCA Capstone Project evaluation schedules.</li>
+</ul>
+
+<h2>10. Measurable Success Criteria</h2>
+<table>
+    <tr><th>Metric Area</th><th>Success Benchmark</th><th>Verification Method</th></tr>
+    <tr><td><strong>Query & Filter Latency</strong></td><td>Dashboard filters update all visual components in &lt; 1.2 seconds across 50,000 rows.</td><td>Execution timing benchmarks via Python <code>time</code> module.</td></tr>
+    <tr><td><strong>Mathematical Accuracy</strong></td><td>Zero variance (100% accuracy) in financial aggregations, balances, and utilization formulas.</td><td>Automated unit tests with <code>pytest</code> asserting exact match against test fixtures.</td></tr>
+    <tr><td><strong>Test Coverage</strong></td><td>&ge; 90% code coverage across data ingestion, calculation, and anomaly detection modules.</td><td>Pytest test execution report and coverage metrics.</td></tr>
+    <tr><td><strong>Data Integrity</strong></td><td>Zero null values in primary keys; foreign key constraints strictly enforced in SQLite schema.</td><td>Schema validation queries and automated ingest assertions.</td></tr>
+    <tr><td><strong>User Accessibility</strong></td><td>Zero deployment crash; public Streamlit Community Cloud URL accessible on modern web browsers.</td><td>Live cloud deployment verification and cross-browser testing.</td></tr>
+    <tr><td><strong>Academic Evaluation</strong></td><td>100% compliance with ABES project guidelines, full bidirectional traceability, and defensible viva presentation.</td><td>Formal review and sign-off by Academic Mentor (Prof. Shilpa Tyagi).</td></tr>
+</table>
+
+<div style='margin-top: 30px; padding-top: 15px; border-top: 1px solid #94a3b8; font-size: 9pt; color: #64748b; text-align: center;'>
+    <p>Document Ref: STEP-01-PU-2026 | Prepared by: Mohd Kaif (Roll: 2503201450093) | MCA 2nd Year, ABES Engineering College</p>
+</div>
+
+</body>
+</html>
