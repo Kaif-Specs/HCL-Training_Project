@@ -33,6 +33,19 @@ def load_analysis_view(db_path: Optional[str] = None) -> pd.DataFrame:
             df["transaction_date"] = pd.to_datetime(df["transaction_date"])
         if "amount" in df.columns:
             df["amount"] = pd.to_numeric(df["amount"], errors="coerce")
+        
+        # Standardize convenience aliases for UI and analytics
+        if "account_name" not in df.columns and "bank_name" in df.columns and "account_number_masked" in df.columns:
+            df["account_name"] = df["bank_name"] + " (" + df["account_number_masked"] + ")"
+        elif "account_name" not in df.columns and "account_id" in df.columns:
+            df["account_name"] = df["account_id"]
+
+        if "payment_method" not in df.columns and "payment_instrument" in df.columns:
+            df["payment_method"] = df["payment_instrument"]
+
+        if "budget_allocated" not in df.columns and "monthly_budget_allocation" in df.columns:
+            df["budget_allocated"] = df["monthly_budget_allocation"]
+
         return df
     finally:
         conn.close()

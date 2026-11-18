@@ -22,14 +22,22 @@ from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, ap
 
 st.set_page_config(page_title="Department Cost Centers | NexGen", page_icon="🏢", layout="wide")
 
-if "clean_df" not in st.session_state:
+try:
+    if "clean_df" not in st.session_state:
+        raw_df = load_analysis_view()
+        clean_df, audit_log = clean_transaction_data(raw_df)
+        try:
+            st.session_state["raw_df"] = raw_df
+            st.session_state["clean_df"] = clean_df
+            st.session_state["audit_log"] = audit_log
+        except Exception:
+            pass
+        df = clean_df
+    else:
+        df = st.session_state["clean_df"]
+except Exception:
     raw_df = load_analysis_view()
-    clean_df, audit_log = clean_transaction_data(raw_df)
-    st.session_state["raw_df"] = raw_df
-    st.session_state["clean_df"] = clean_df
-    st.session_state["audit_log"] = audit_log
-
-df = st.session_state["clean_df"]
+    df, _ = clean_transaction_data(raw_df)
 
 render_tailwind_header(
     title="Departmental Cost Accounting & Budget Utilization Cockpit",

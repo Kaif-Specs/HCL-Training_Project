@@ -20,16 +20,23 @@ from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, ap
 
 st.set_page_config(page_title="Data Quality Audit | NexGen", page_icon="🛡️", layout="wide")
 
-if "clean_df" not in st.session_state:
+try:
+    if "clean_df" not in st.session_state:
+        raw_df = load_analysis_view()
+        clean_df, audit_log = clean_transaction_data(raw_df)
+        try:
+            st.session_state["raw_df"] = raw_df
+            st.session_state["clean_df"] = clean_df
+            st.session_state["audit_log"] = audit_log
+        except Exception:
+            pass
+    else:
+        raw_df = st.session_state["raw_df"]
+        clean_df = st.session_state["clean_df"]
+        audit_log = st.session_state["audit_log"]
+except Exception:
     raw_df = load_analysis_view()
     clean_df, audit_log = clean_transaction_data(raw_df)
-    st.session_state["raw_df"] = raw_df
-    st.session_state["clean_df"] = clean_df
-    st.session_state["audit_log"] = audit_log
-
-raw_df = st.session_state["raw_df"]
-clean_df = st.session_state["clean_df"]
-audit_log = st.session_state["audit_log"]
 
 render_tailwind_header(
     title="Data Quality Governance & Pipeline Audit Dashboard",

@@ -27,20 +27,28 @@ st.set_page_config(
 )
 
 # 1. Initialize Global Session State & Ingest Data
-if "raw_df" not in st.session_state:
-    try:
+try:
+    if "raw_df" not in st.session_state:
         raw_df = load_analysis_view()
         clean_df, audit_log = clean_transaction_data(raw_df)
-        st.session_state["raw_df"] = raw_df
-        st.session_state["clean_df"] = clean_df
-        st.session_state["audit_log"] = audit_log
-    except Exception as e:
-        st.error(f"Error connecting to database data/app.db: {e}")
-        st.stop()
+        try:
+            st.session_state["raw_df"] = raw_df
+            st.session_state["clean_df"] = clean_df
+            st.session_state["audit_log"] = audit_log
+        except Exception:
+            pass
+    else:
+        raw_df = st.session_state["raw_df"]
+        clean_df = st.session_state["clean_df"]
+        audit_log = st.session_state["audit_log"]
+except Exception:
+    raw_df = load_analysis_view()
+    clean_df, audit_log = clean_transaction_data(raw_df)
 
-raw_df = st.session_state["raw_df"]
-clean_df = st.session_state["clean_df"]
-audit_log = st.session_state["audit_log"]
+# Safe fallback
+if "raw_df" not in locals() or raw_df is None:
+    raw_df = load_analysis_view()
+    clean_df, audit_log = clean_transaction_data(raw_df)
 
 # 2. Main Portal Interface
 render_tailwind_header(
