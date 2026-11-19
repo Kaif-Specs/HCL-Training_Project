@@ -30,50 +30,79 @@ The system features an ACID-compliant **SQLite Star Schema** database, in-memory
 
 ## 🏗️ 4-Tier System Architecture
 
+![4-Tier System Architecture](docs/04_system_architecture.png)
+
+<details open>
+<summary><b>Click to expand Interactive Architecture Diagram (Mermaid)</b></summary>
+
 ```mermaid
 flowchart TD
-    subgraph Tier1["1. Storage & Persistence Tier"]
-        DB[("data/app.db (SQLite3 WAL Mode)")]
+    %% TIER 1
+    subgraph Tier1 ["1. Storage and Persistence Tier"]
+        direction TB
+        DB[("data/app.db - SQLite3 WAL Mode")]
         DIM1["dim_accounts (8 rows)"]
         DIM2["dim_categories (8 rows)"]
         DIM3["dim_departments (5 rows)"]
         DIM4["dim_merchants (25 rows)"]
         FACT["fact_transactions (302 rows)"]
         VIEW["view_transaction_analysis (35 columns)"]
-        DIM1 & DIM2 & DIM3 & DIM4 --> FACT
+
+        DIM1 --> FACT
+        DIM2 --> FACT
+        DIM3 --> FACT
+        DIM4 --> FACT
         FACT --> VIEW
         VIEW --> DB
     end
 
-    subgraph Tier2["2. Data Ingestion & Sanitization Tier"]
-        LOADER["src/data_loader.py (@st.cache_data)"]
-        CLEANER["src/cleaner.py (Deduplication & Imputation)"]
-        DB --> LOADER
+    %% TIER 2
+    subgraph Tier2 ["2. Data Ingestion and Sanitization Tier"]
+        direction TB
+        LOADER["src/data_loader.py (st.cache_data)"]
+        CLEANER["src/cleaner.py (Deduplication and Imputation)"]
         LOADER --> CLEANER
     end
 
-    subgraph Tier3["3. Analytics & Statistical Engine Tier"]
+    %% TIER 3
+    subgraph Tier3 ["3. Analytics and Statistical Engine Tier"]
+        direction TB
         ANALYTICS["src/analytics.py (KPIs, Cash Flow, Variance)"]
-        STATS["src/stats_engine.py (Z-Score & Tukey IQR)"]
-        CLEANER --> ANALYTICS
-        CLEANER --> STATS
+        STATS["src/stats_engine.py (Z-Score and Tukey IQR)"]
     end
 
-    subgraph Tier4["4. Presentation & Visualization Tier"]
-        UI["src/ui.py (Tailwind CDN Components)"]
+    %% TIER 4
+    subgraph Tier4 ["4. Presentation and Visualization Tier"]
+        direction TB
         APP["app.py (Gateway Portal)"]
-        P1["pages/1_📊_Executive_Summary.py"]
-        P2["pages/2_💳_Credit_vs_Debit.py"]
-        P3["pages/3_📈_Cash_Flow_Trends.py"]
-        P4["pages/4_🏢_Cost_Centers.py"]
-        P5["pages/5_🔍_Anomaly_Detection.py"]
-        P6["pages/6_📥_Data_Explorer.py"]
-        P7["pages/7_🛡️_Data_Quality.py"]
-        
-        ANALYTICS & STATS --> APP & P1 & P2 & P3 & P4 & P5 & P6 & P7
-        UI --> P1 & P2 & P3 & P4 & P5 & P6 & P7
+        UI["src/ui.py (Tailwind CDN Components)"]
+        P1["pages/1_Executive_Summary.py"]
+        P2["pages/2_Credit_vs_Debit.py"]
+        P3["pages/3_Cash_Flow_Trends.py"]
+        P4["pages/4_Cost_Centers.py"]
+        P5["pages/5_Anomaly_Detection.py"]
+        P6["pages/6_Data_Explorer.py"]
+        P7["pages/7_Data_Quality.py"]
+
+        APP --> P1
+        APP --> P2
+        APP --> P3
+        APP --> P4
+        APP --> P5
+        APP --> P6
+        APP --> P7
+        UI -.-> APP
     end
+
+    %% Inter-Tier Pipeline Connections
+    DB --> LOADER
+    CLEANER --> ANALYTICS
+    CLEANER --> STATS
+    ANALYTICS --> APP
+    STATS --> APP
 ```
+
+</details>
 
 ---
 
@@ -143,6 +172,7 @@ d:\HCL_Project\
 │   ├── credit_debit_data.xlsx   # 6-sheet Excel database workbook
 │   └── *.csv                    # Dimension and Fact table CSV exports
 ├── docs/                        # Complete 14 SDLC Documents & Specifications
+│   ├── 04_system_architecture.png
 │   ├── 04_Traceability_Matrix.xlsx
 │   ├── 05_BRD.docx
 │   ├── 07_TRD.docx
