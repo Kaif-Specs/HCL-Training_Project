@@ -1,11 +1,12 @@
 # Credit vs Debit Transaction Analysis System
 ### Enterprise Cash Flow Intelligence, Departmental Cost Accounting & Automated Fraud Detection
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://2503201450093-credit-debit-analytics.streamlit.app)
 [![Python 3.12](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](https://www.python.org/)
 [![Streamlit 1.32](https://img.shields.io/badge/Streamlit-1.32.0-FF4B4B.svg)](https://streamlit.io/)
 [![SQLite 3](https://img.shields.io/badge/Database-SQLite%20Star%20Schema-003B57.svg)](https://sqlite.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS%20v3-38B2AC.svg)](https://tailwindcss.com/)
-[![Tests Passing](https://img.shields.io/badge/Tests-26%2F26%20Passing-success.svg)](file:///d:/HCL_Project/tests)
+[![Tests Passing](https://img.shields.io/badge/Tests-26%2F26%20Passing-success.svg)](tests/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
@@ -118,6 +119,20 @@ flowchart TD
 | **UI-05** | `5_🔍_Anomaly_Detection.py` | Z-score scatter plot ($|Z| > 3.0$), Tukey IQR sensitivity slider, Pareto 80/20 vendor chart, CSV audit export. |
 | **UI-06** | `6_📥_Data_Explorer.py` | Keyword search across all columns, multi-attribute filter grid, column selector, filtered CSV download. |
 | **UI-07** | `7_🛡️_Data_Quality.py` | Data Health Score (98.3%), duplicate elimination audit log, missing values profile, raw vs clean toggle. |
+
+---
+
+## 🌐 Live Cloud Deployment (Streamlit Community Cloud)
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://2503201450093-credit-debit-analytics.streamlit.app)
+
+The analytics platform is configured and ready for 1-click hosting on **Streamlit Community Cloud**:
+- **🚀 Live Interactive Application:** [https://2503201450093-credit-debit-analytics.streamlit.app](https://2503201450093-credit-debit-analytics.streamlit.app)
+- **⚡ 1-Click Deploy Link:** [Deploy on Streamlit Community Cloud](https://share.streamlit.io/deploy?repository=Kaif-Specs/HCL-Training_Project&branch=main&mainModule=app.py)
+- **Repository:** `Kaif-Specs/HCL-Training_Project`
+- **Branch:** `main`
+- **Main file path:** `app.py`
+- **Python Runtime:** `3.11` / `3.12` (configured via `requirements.txt`)
 
 ---
 
