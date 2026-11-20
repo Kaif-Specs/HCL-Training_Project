@@ -1,7 +1,7 @@
 # Credit vs Debit Transaction Analysis System
 ### Enterprise Cash Flow Intelligence, Departmental Cost Accounting & Automated Fraud Detection
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://2503201450093-credit-debit-analytics.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hcl-trainingproject-zm5krbplamq8v3qqnjjakz.streamlit.app/)
 [![Python 3.12](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](https://www.python.org/)
 [![Streamlit 1.32](https://img.shields.io/badge/Streamlit-1.32.0-FF4B4B.svg)](https://streamlit.io/)
 [![SQLite 3](https://img.shields.io/badge/Database-SQLite%20Star%20Schema-003B57.svg)](https://sqlite.org/)
@@ -124,10 +124,10 @@ flowchart TD
 
 ## 🌐 Live Cloud Deployment (Streamlit Community Cloud)
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://2503201450093-credit-debit-analytics.streamlit.app)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hcl-trainingproject-zm5krbplamq8v3qqnjjakz.streamlit.app/)
 
-The analytics platform is configured and ready for 1-click hosting on **Streamlit Community Cloud**:
-- **🚀 Live Interactive Application:** [https://2503201450093-credit-debit-analytics.streamlit.app](https://2503201450093-credit-debit-analytics.streamlit.app)
+The analytics platform is deployed and live on **Streamlit Community Cloud**:
+- **🚀 Live Interactive Application:** [https://hcl-trainingproject-zm5krbplamq8v3qqnjjakz.streamlit.app/](https://hcl-trainingproject-zm5krbplamq8v3qqnjjakz.streamlit.app/)
 - **⚡ 1-Click Deploy Link:** [Deploy on Streamlit Community Cloud](https://share.streamlit.io/deploy?repository=Kaif-Specs/HCL-Training_Project&branch=main&mainModule=app.py)
 - **Repository:** `Kaif-Specs/HCL-Training_Project`
 - **Branch:** `main`

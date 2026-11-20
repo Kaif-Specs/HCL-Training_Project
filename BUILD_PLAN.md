@@ -40,7 +40,7 @@ Every phase of the project lifecycle has been documented and baselined:
 - **Step 11:** [User Stories & Sprint Backlog](file:///d:/HCL_Project/docs/11_User_Stories.docx)
 - **Step 12:** [UI Framework & Wireframes](file:///d:/HCL_Project/docs/12_UI_Framework.docx) | [Theme Config](file:///d:/HCL_Project/.streamlit/config.toml) | [UI Components](file:///d:/HCL_Project/src/ui.py)
 - **Step 13:** [Test Cases Specification](file:///d:/HCL_Project/docs/13_Test_Cases.docx) | [Automated Test Suite Directory](file:///d:/HCL_Project/tests)
-- **Step 16:** [Streamlit Community Cloud Deployment Guide](file:///d:/HCL_Project/docs/16_DEPLOYMENT_GUIDE.docx) | [Live Application](https://2503201450093-credit-debit-analytics.streamlit.app) | [1-Click Deploy](https://share.streamlit.io/deploy?repository=Kaif-Specs/HCL-Training_Project&branch=main&mainModule=app.py)
+- **Step 16:** [Streamlit Community Cloud Deployment Guide](file:///d:/HCL_Project/docs/16_DEPLOYMENT_GUIDE.docx) | [Live Application](https://hcl-trainingproject-zm5krbplamq8v3qqnjjakz.streamlit.app/) | [1-Click Deploy](https://share.streamlit.io/deploy?repository=Kaif-Specs/HCL-Training_Project&branch=main&mainModule=app.py)
 
 ---
 
