@@ -30,7 +30,7 @@ inject_fintech_theme()
 
 # 1. Initialize Global Session State & Ingest Data
 try:
-    if "raw_df" not in st.session_state:
+    if "raw_df" not in st.session_state or st.session_state.get("raw_df") is None:
         raw_df = load_analysis_view()
         clean_df, audit_log = clean_transaction_data(raw_df)
         try:
@@ -43,14 +43,23 @@ try:
         raw_df = st.session_state["raw_df"]
         clean_df = st.session_state["clean_df"]
         audit_log = st.session_state["audit_log"]
-except Exception:
-    raw_df = load_analysis_view()
-    clean_df, audit_log = clean_transaction_data(raw_df)
+except Exception as e:
+    st.error(f"⚠️ Error initializing data pipeline: {e}")
+    try:
+        raw_df = load_analysis_view()
+        clean_df, audit_log = clean_transaction_data(raw_df)
+    except Exception as e2:
+        st.exception(e2)
+        st.stop()
 
 # Safe fallback
 if "raw_df" not in locals() or raw_df is None:
-    raw_df = load_analysis_view()
-    clean_df, audit_log = clean_transaction_data(raw_df)
+    try:
+        raw_df = load_analysis_view()
+        clean_df, audit_log = clean_transaction_data(raw_df)
+    except Exception as e3:
+        st.exception(e3)
+        st.stop()
 
 # 2. Main Portal Interface
 render_tailwind_header(
