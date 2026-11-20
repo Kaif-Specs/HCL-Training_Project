@@ -18,9 +18,10 @@ if ROOT_DIR not in sys.path:
 from src.data_loader import load_analysis_view
 from src.cleaner import clean_transaction_data
 from src.stats_engine import detect_outliers_zscore, detect_outliers_tukey, compute_vendor_pareto
-from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme
+from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme, format_inr, inject_fintech_theme
 
 st.set_page_config(page_title="Anomaly Detection | NexGen", page_icon="🔍", layout="wide")
+inject_fintech_theme()
 
 try:
     if "clean_df" not in st.session_state:
@@ -60,15 +61,15 @@ tukey_outliers = full_anomaly_df[full_anomaly_df["is_outlier_tukey"]]
 # KPI Summary
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    render_kpi_card("Z-Score Flagged Anomalies", f"{len(z_outliers)}", f"Threshold |Z| > {z_thresh}", status="negative" if len(z_outliers) > 0 else "positive", height=110)
+    render_kpi_card("Z-Score Flagged Anomalies", f"{len(z_outliers)}", f"Threshold |Z| > {z_thresh}", status="negative" if len(z_outliers) > 0 else "positive")
 with c2:
-    render_kpi_card("Tukey IQR Outliers", f"{len(tukey_outliers)}", f"Multiplier k = {tukey_k}", status="warning" if len(tukey_outliers) > 0 else "positive", height=110)
+    render_kpi_card("Tukey IQR Outliers", f"{len(tukey_outliers)}", f"Multiplier k = {tukey_k}", status="warning" if len(tukey_outliers) > 0 else "positive")
 with c3:
     tukey_ub = full_anomaly_df["tukey_upper_bound"].iloc[0] if "tukey_upper_bound" in full_anomaly_df.columns else 0.0
-    render_kpi_card("Tukey Upper Bound Fence", f"₹{tukey_ub:,.2f}", "Upper Outlier Cutoff", status="neutral", height=110)
+    render_kpi_card("Tukey Upper Bound Fence", format_inr(tukey_ub), "Upper Outlier Cutoff", status="neutral")
 with c4:
     total_anom_val = z_outliers["amount"].sum()
-    render_kpi_card("Flagged Outlier Value", f"₹{total_anom_val:,.2f}", "Suspect Capital Outflow", status="negative", height=110)
+    render_kpi_card("Flagged Outlier Value", format_inr(total_anom_val), "Suspect Capital Outflow", status="negative")
 
 st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
@@ -127,9 +128,18 @@ if not pareto_df.empty:
 st.subheader("🚨 Suspect Outlier Transactions Audit Table")
 if not z_outliers.empty:
     cols_show = ["transaction_id", "transaction_date", "merchant_name", "category_name", "department_name", "amount", "z_score", "status"]
-    st.dataframe(z_outliers[cols_show].sort_values(by="amount", ascending=False), use_container_width=True, hide_index=True)
+    sorted_outliers = z_outliers[cols_show].sort_values(by="amount", ascending=False)
+    st.dataframe(
+        sorted_outliers.style.format({
+            "amount": "₹{:,.2f}",
+            "z_score": "{:.2f}",
+            "transaction_date": lambda t: pd.to_datetime(t).strftime("%d-%b-%Y") if pd.notna(t) else ""
+        }),
+        use_container_width=True,
+        hide_index=True
+    )
     
-    csv_bytes = z_outliers[cols_show].to_csv(index=False).encode("utf-8")
+    csv_bytes = sorted_outliers.to_csv(index=False).encode("utf-8")
     st.download_button(
         label="📥 Download Flagged Outliers as CSV",
         data=csv_bytes,

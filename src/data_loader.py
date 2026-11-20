@@ -43,8 +43,10 @@ def load_analysis_view(db_path: Optional[str] = None) -> pd.DataFrame:
         if "payment_method" not in df.columns and "payment_instrument" in df.columns:
             df["payment_method"] = df["payment_instrument"]
 
-        if "budget_allocated" not in df.columns and "monthly_budget_allocation" in df.columns:
-            df["budget_allocated"] = df["monthly_budget_allocation"]
+        # Map authentic departmental budget allocations from dim_departments
+        dept_budgets = pd.read_sql_query("SELECT department_id, annual_budget FROM dim_departments;", conn)
+        budget_map = dict(zip(dept_budgets["department_id"], dept_budgets["annual_budget"]))
+        df["budget_allocated"] = df["department_id"].map(budget_map).fillna(0.0)
 
         return df
     finally:

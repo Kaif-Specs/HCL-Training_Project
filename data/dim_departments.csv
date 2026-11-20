@@ -1,6 +1,6 @@
 department_id,department_name,cost_center_code,department_head,annual_budget
-DEP-ENG,Engineering & Technology,CC-ENG-101,Rajesh Sharma,6500000.0
-DEP-FIN,Finance & Accounting,CC-FIN-201,Sunita Nair,2500000.0
-DEP-HR,Human Resources,CC-HR-301,Amitabh Verma,1800000.0
-DEP-SAL,Sales & Marketing,CC-SAL-401,Pooja Malhotra,3500000.0
-DEP-OPS,Operations & Facilities,CC-OPS-501,Vikas Saxena,2200000.0
+DEP-ENG,Engineering & Technology,CC-ENG-101,Rajesh Sharma,10000000.0
+DEP-FIN,Finance & Accounting,CC-FIN-201,Sunita Nair,10500000.0
+DEP-HR,Human Resources,CC-HR-301,Amitabh Verma,9500000.0
+DEP-SAL,Sales & Marketing,CC-SAL-401,Pooja Malhotra,9200000.0
+DEP-OPS,Operations & Facilities,CC-OPS-501,Vikas Saxena,8000000.0

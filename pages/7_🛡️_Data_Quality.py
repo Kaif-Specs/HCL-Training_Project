@@ -16,9 +16,10 @@ if ROOT_DIR not in sys.path:
 
 from src.data_loader import load_analysis_view
 from src.cleaner import clean_transaction_data
-from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme
+from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme, inject_fintech_theme
 
 st.set_page_config(page_title="Data Quality Audit | NexGen", page_icon="🛡️", layout="wide")
+inject_fintech_theme()
 
 try:
     if "clean_df" not in st.session_state:
@@ -47,13 +48,13 @@ render_tailwind_header(
 # 1. Health Score Cards
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    render_kpi_card("Overall Data Health Score", f"{audit_log['health_score']}%", "Comprehensive Reliability Index", status="positive", height=110)
+    render_kpi_card("Overall Data Health Score", f"{audit_log['health_score']}%", "Comprehensive Reliability Index", status="positive")
 with c2:
-    render_kpi_card("Ingested Raw Records", f"{audit_log['raw_records']:,}", "Database Source Rows", status="neutral", height=110)
+    render_kpi_card("Ingested Raw Records", f"{audit_log['raw_records']:,}", "Database Source Rows", status="neutral")
 with c3:
-    render_kpi_card("Duplicates Purged", f"{audit_log['duplicates_removed']}", "Eliminated Redundant Entries", status="warning" if audit_log['duplicates_removed'] > 0 else "positive", height=110)
+    render_kpi_card("Duplicates Purged", f"{audit_log['duplicates_removed']}", "Eliminated Redundant Entries", status="warning" if audit_log['duplicates_removed'] > 0 else "positive")
 with c4:
-    render_kpi_card("Null Categoricals Imputed", f"{audit_log['nulls_imputed']}", "Imputed with 'Unknown/Pending'", status="positive", height=110)
+    render_kpi_card("Null Categoricals Imputed", f"{audit_log['nulls_imputed']}", "Imputed with 'Unknown/Pending'", status="positive")
 
 st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
@@ -61,8 +62,17 @@ st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 st.subheader("📑 Duplicate Records Elimination Audit")
 if audit_log["duplicate_ids"]:
     st.write(f"The following **{len(audit_log['duplicate_ids'])} duplicate transactions** were identified on compound key `['account_id', 'transaction_date', 'amount', 'transaction_type', 'merchant_id']` and safely purged:")
-    dup_rows = raw_df[raw_df["transaction_id"].isin(audit_log["duplicate_ids"])]
-    st.dataframe(dup_rows[["transaction_id", "transaction_date", "account_name", "merchant_name", "amount", "transaction_type"]], use_container_width=True, hide_index=True)
+    dup_rows = raw_df[raw_df["transaction_id"].isin(audit_log["duplicate_ids"])][
+        ["transaction_id", "transaction_date", "account_name", "merchant_name", "amount", "transaction_type"]
+    ]
+    st.dataframe(
+        dup_rows.style.format({
+            "amount": "₹{:,.2f}",
+            "transaction_date": lambda t: pd.to_datetime(t).strftime("%d-%b-%Y") if pd.notna(t) else ""
+        }),
+        use_container_width=True,
+        hide_index=True
+    )
 else:
     st.success("✅ No duplicate records detected in the active database.")
 

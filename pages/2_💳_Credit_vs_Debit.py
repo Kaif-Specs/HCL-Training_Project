@@ -17,9 +17,10 @@ if ROOT_DIR not in sys.path:
 
 from src.data_loader import load_analysis_view
 from src.cleaner import clean_transaction_data
-from src.ui import render_tailwind_header, render_kpi_card, apply_chart_theme
+from src.ui import render_tailwind_header, render_kpi_card, apply_chart_theme, format_inr, inject_fintech_theme
 
 st.set_page_config(page_title="Credit vs Debit Comparison | NexGen", page_icon="💳", layout="wide")
+inject_fintech_theme()
 
 try:
     if "clean_df" not in st.session_state:
@@ -50,13 +51,13 @@ debit_df = df[df["transaction_type"] == "Debit"]
 
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    render_kpi_card("Credit Transaction Count", f"{len(credit_df):,}", "Inflow Events", status="positive", height=110)
+    render_kpi_card("Credit Transaction Count", f"{len(credit_df):,}", "Inflow Events", status="positive")
 with c2:
-    render_kpi_card("Debit Transaction Count", f"{len(debit_df):,}", "Disbursement Events", status="negative", height=110)
+    render_kpi_card("Debit Transaction Count", f"{len(debit_df):,}", "Disbursement Events", status="negative")
 with c3:
-    render_kpi_card("Avg Credit Ticket Size", f"₹{credit_df['amount'].mean():,.2f}", "Client / Contract Inflows", status="positive", height=110)
+    render_kpi_card("Avg Credit Ticket Size", format_inr(credit_df['amount'].mean()), "Client / Contract Inflows", status="positive")
 with c4:
-    render_kpi_card("Avg Debit Ticket Size", f"₹{debit_df['amount'].mean():,.2f}", "Operational Expenses", status="neutral", height=110)
+    render_kpi_card("Avg Debit Ticket Size", format_inr(debit_df['amount'].mean()), "Operational Expenses", status="neutral")
 
 st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
@@ -120,7 +121,7 @@ st.dataframe(
     pivot_cat.style.format({
         "Credit_Sum": "₹{:,.2f}",
         "Debit_Sum": "₹{:,.2f}",
-        "Net_Balance": "₹{:,.2f}",
+        "Net_Balance": lambda x: f"-₹{abs(x):,.2f}" if x < 0 else f"₹{x:,.2f}",
         "Credit_Count": "{:,}",
         "Debit_Count": "{:,}"
     }),

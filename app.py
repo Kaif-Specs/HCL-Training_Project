@@ -17,7 +17,7 @@ if ROOT_DIR not in sys.path:
 
 from src.data_loader import load_analysis_view
 from src.cleaner import clean_transaction_data
-from src.ui import render_tailwind_header, render_alert_box, render_kpi_card
+from src.ui import render_tailwind_header, render_alert_box, render_kpi_card, inject_fintech_theme
 
 st.set_page_config(
     page_title="NexGen Financial Analytics",
@@ -25,6 +25,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+inject_fintech_theme()
 
 # 1. Initialize Global Session State & Ingest Data
 try:
@@ -59,13 +61,13 @@ render_tailwind_header(
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    render_kpi_card("Total Ingested Rows", f"{len(raw_df):,}", "Verified Star Schema", status="neutral", height=115)
+    render_kpi_card("Total Ingested Rows", f"{len(raw_df):,}", "Verified Star Schema", status="neutral")
 with col2:
-    render_kpi_card("Cleaned Analytical Rows", f"{len(clean_df):,}", f"{audit_log['duplicates_removed']} Duplicates Purged", status="positive", height=115)
+    render_kpi_card("Cleaned Analytical Rows", f"{len(clean_df):,}", f"{audit_log['duplicates_removed']} Duplicates Purged", status="positive")
 with col3:
-    render_kpi_card("Data Health Score", f"{audit_log['health_score']}%", f"{audit_log['nulls_imputed']} Nulls Imputed", status="positive", height=115)
+    render_kpi_card("Data Health Score", f"{audit_log['health_score']}%", f"{audit_log['nulls_imputed']} Nulls Imputed", status="positive")
 with col4:
-    render_kpi_card("Total Accounts Monitored", f"{clean_df['account_id'].nunique()}", "Active Banking Entities", status="neutral", height=115)
+    render_kpi_card("Total Accounts Monitored", f"{clean_df['account_id'].nunique()}", "Active Banking Entities", status="neutral")
 
 st.markdown("---")
 
@@ -86,6 +88,5 @@ st.markdown("---")
 render_alert_box(
     title="ACADEMIC & ENTERPRISE COMPLIANCE NOTICE",
     message="This project is developed by Mohd Kaif (Roll No: 2503201450093), MCA 2nd Year, ABES Engineering College under academic mentorship of Prof. Shilpa Tyagi. Target organization: NexGen Technologies Pvt. Ltd., Noida.",
-    alert_type="info",
-    height=90
+    alert_type="info"
 )

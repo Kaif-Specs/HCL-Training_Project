@@ -18,9 +18,10 @@ if ROOT_DIR not in sys.path:
 from src.data_loader import load_analysis_view
 from src.cleaner import clean_transaction_data
 from src.analytics import compute_monthly_trends
-from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme
+from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme, format_inr, inject_fintech_theme
 
 st.set_page_config(page_title="Cash Flow Trends | NexGen", page_icon="📈", layout="wide")
+inject_fintech_theme()
 
 try:
     if "clean_df" not in st.session_state:
@@ -50,6 +51,25 @@ monthly_df = compute_monthly_trends(df)
 if monthly_df.empty:
     st.warning("Insufficient temporal data to compute monthly trends.")
     st.stop()
+
+# Summary Metrics Row
+c1, c2, c3, c4 = st.columns(4)
+with c1:
+    peak_in_idx = monthly_df["Credit"].idxmax()
+    render_kpi_card("Peak Monthly Inflow", format_inr(monthly_df.loc[peak_in_idx, "Credit"]), f"Recorded in {monthly_df.loc[peak_in_idx, 'YearMonth']}", status="positive")
+with c2:
+    peak_out_idx = monthly_df["Debit"].idxmax()
+    render_kpi_card("Peak Monthly Outflow", format_inr(monthly_df.loc[peak_out_idx, "Debit"]), f"Recorded in {monthly_df.loc[peak_out_idx, 'YearMonth']}", status="negative")
+with c3:
+    avg_net = monthly_df["Net_Cash_Flow"].mean()
+    net_st = "positive" if avg_net >= 0 else "negative"
+    render_kpi_card("Avg Monthly Net Flow", format_inr(avg_net), "Monthly Cash Retention" if avg_net >= 0 else "Operating Burn", status=net_st)
+with c4:
+    end_net = monthly_df["Cumulative_Net"].iloc[-1]
+    cum_st = "positive" if end_net >= 0 else "negative"
+    render_kpi_card("Cumulative Net Reserve", format_inr(end_net), "Closing Treasury Buffer", status=cum_st)
+
+st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
 # 1. Monthly Performance Visual
 st.subheader("📊 Monthly Inflows (Credit) vs Outflows (Debit)")
@@ -111,8 +131,8 @@ st.dataframe(
     monthly_df.style.format({
         "Credit": "₹{:,.2f}",
         "Debit": "₹{:,.2f}",
-        "Net_Cash_Flow": "₹{:,.2f}",
-        "Cumulative_Net": "₹{:,.2f}",
+        "Net_Cash_Flow": lambda x: f"-₹{abs(x):,.2f}" if x < 0 else f"₹{x:,.2f}",
+        "Cumulative_Net": lambda x: f"-₹{abs(x):,.2f}" if x < 0 else f"₹{x:,.2f}",
         "Debit_30d_MA": "₹{:,.2f}"
     }),
     use_container_width=True

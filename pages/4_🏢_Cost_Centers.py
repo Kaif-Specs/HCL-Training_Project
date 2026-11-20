@@ -18,9 +18,10 @@ if ROOT_DIR not in sys.path:
 from src.data_loader import load_analysis_view
 from src.cleaner import clean_transaction_data
 from src.analytics import compute_department_spend
-from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme
+from src.ui import render_tailwind_header, render_kpi_card, render_alert_box, apply_chart_theme, format_inr, inject_fintech_theme
 
 st.set_page_config(page_title="Department Cost Centers | NexGen", page_icon="🏢", layout="wide")
+inject_fintech_theme()
 
 try:
     if "clean_df" not in st.session_state:
@@ -59,15 +60,15 @@ overall_utilization = round((total_actual / total_allocated * 100.0), 2) if tota
 
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    render_kpi_card("Total Budget Allocated", f"₹{total_allocated:,.2f}", "Approved Operating Budget", status="neutral", height=110)
+    render_kpi_card("Total Budget Allocated", format_inr(total_allocated), "Approved Operating Budget", status="neutral")
 with c2:
-    render_kpi_card("Total Actual Outflows", f"₹{total_actual:,.2f}", "Year-to-Date Spend", status="negative", height=110)
+    render_kpi_card("Total Actual Outflows", format_inr(total_actual), "Year-to-Date Spend", status="negative")
 with c3:
     v_status = "positive" if net_variance >= 0 else "negative"
-    render_kpi_card("Net Budget Variance", f"₹{net_variance:,.2f}", "Under Budget Surplus" if net_variance >= 0 else "Budget Overrun", status=v_status, height=110)
+    render_kpi_card("Net Budget Variance", format_inr(net_variance), "Under Budget Surplus" if net_variance >= 0 else "Budget Overrun", status=v_status)
 with c4:
     u_status = "positive" if overall_utilization <= 80 else ("warning" if overall_utilization <= 100 else "negative")
-    render_kpi_card("Overall Budget Utilization", f"{overall_utilization:.1f}%", "Corporate Absorption Rate", status=u_status, height=110)
+    render_kpi_card("Overall Budget Utilization", f"{overall_utilization:.1f}%", "Corporate Absorption Rate", status=u_status)
 
 st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
@@ -123,7 +124,7 @@ st.dataframe(
     dept_df.style.format({
         "budget_allocated": "₹{:,.2f}",
         "Actual_Spend": "₹{:,.2f}",
-        "Variance": "₹{:,.2f}",
+        "Variance": lambda x: f"-₹{abs(x):,.2f}" if x < 0 else f"₹{x:,.2f}",
         "Utilization_Pct": "{:.2f}%"
     }),
     use_container_width=True
