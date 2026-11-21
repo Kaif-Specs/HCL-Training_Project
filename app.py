@@ -96,6 +96,6 @@ Select an analytical dashboard module from the **sidebar navigation** to explore
 st.markdown("---")
 render_alert_box(
     title="ACADEMIC & ENTERPRISE COMPLIANCE NOTICE",
-    message="This project is developed by Mohd Kaif (Roll No: 2503201450093), MCA 2nd Year, ABES Engineering College under academic mentorship of Prof. Shilpa Tyagi. Target organization: NexGen Technologies Pvt. Ltd., Noida.",
+    message="This project is developed by Mohd Kaif (Roll No: 2500320140093), MCA 2nd Year, ABES Engineering College | Batch ID: ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01 | Project ID: P059 under academic mentorship of Mr Dinesh Sereno. Target organization: NexGen Technologies Pvt. Ltd., Noida.",
     alert_type="info"
 )

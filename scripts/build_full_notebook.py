@@ -23,8 +23,9 @@ def create_notebook():
     # ==========================================
     header_md = """# 📊 Enterprise Exploratory Data Analysis (EDA) Masterclass
 ## Credit vs Debit Transaction Analysis System
-**Author:** Mohd Kaif | **University Roll No:** `2503201450093` | **Target Enterprise:** NexGen Technologies Pvt. Ltd., Noida  
-**Academic Program:** MCA 2nd Year (Data Analytics Specialization) | **Academic Mentor:** Prof. Shilpa Tyagi  
+**Author:** Mohd Kaif | **University Roll No:** `2500320140093` | **Target Enterprise:** NexGen Technologies Pvt. Ltd., Noida  
+**Academic Program:** MCA 2nd Year (Data Analytics Specialization) | **Batch ID:** `ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01` | **Project ID:** `P059`  
+**Academic Mentor:** Mr Dinesh Sereno  
 **Environment Requirements:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `plotly`, `scipy`
 
 ---

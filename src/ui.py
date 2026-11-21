@@ -134,7 +134,7 @@ def inject_fintech_theme():
     """
     st.markdown(custom_css, unsafe_allow_html=True)
 
-def render_fintech_header(title: str, subtitle: str, badge_text: str = "SCREEN UI-01", enterprise: str = "NexGen Technologies Pvt. Ltd., Noida", author: str = "Mohd Kaif (Roll: 2503201450093)"):
+def render_fintech_header(title: str, subtitle: str, badge_text: str = "SCREEN UI-01", enterprise: str = "NexGen Technologies Pvt. Ltd., Noida", author: str = "Mohd Kaif (Roll: 2500320140093)"):
     """
     Renders an institutional-grade dark gradient header banner natively in the DOM.
     Container: linear-gradient(#131A26, #0F172A) with 1px rgba(255,255,255,0.08) border and 12px radius.
@@ -203,6 +203,7 @@ def render_fintech_header(title: str, subtitle: str, badge_text: str = "SCREEN U
             <div style="color: #64748B; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Target Enterprise</div>
             <div style="color: #E2E8F0; font-size: 0.85rem; font-weight: 600; margin-top: 2px;">{enterprise}</div>
             <div style="color: #94A3B8; font-size: 0.75rem; margin-top: 3px;">Author: {author}</div>
+            <div style="color: #64748B; font-size: 0.7rem; margin-top: 2px;">Project ID: P059 &bull; Batch: ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01 &bull; Mentor: Mr Dinesh Sereno</div>
         </div>
     </div>
     """

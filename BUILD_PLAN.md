@@ -2,10 +2,12 @@
 
 **Project:** Credit vs Debit Transaction Analysis System  
 **Organization:** NexGen Technologies Pvt. Ltd., Noida (500-Employee IT Services Firm)  
-**Learner / Author:** Mohd Kaif (University Roll No: 2503201450093)  
+**Learner / Author:** Mohd Kaif (University Roll No: 2500320140093)  
+**Batch ID:** ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01  
+**Project ID:** P059  
 **Program:** Master of Computer Applications (MCA) — 2nd Year Data Analytics  
 **Institution:** ABES Engineering College, Ghaziabad  
-**Academic Mentor:** Prof. Shilpa Tyagi  
+**Academic Mentor:** Mr Dinesh Sereno  
 **Target Environment:** Python 3.12 | Streamlit Multipage | Tailwind CSS CDN | SQLite 3 | Plotly  
 **Document Version:** 1.0 (Baselined for Step 15 Implementation)  
 **Tracking Code:** `BUILD-PLAN-v1.0-2026-11`
@@ -16,7 +18,7 @@
 
 ### 10-Line Executive Summary
 1. **Domain & Organization:** A specialized enterprise financial analytics platform engineered for NexGen Technologies Pvt. Ltd., Noida, monitoring departmental operational expenditure and liquidity.
-2. **Student & Academic Affiliation:** Authored by Mohd Kaif (Roll No: 2503201450093), MCA 2nd Year Data Analytics, ABES Engineering College, under the mentorship of Prof. Shilpa Tyagi.
+2. **Student & Academic Affiliation:** Authored by Mohd Kaif (Roll No: 2500320140093), MCA 2nd Year Data Analytics, ABES Engineering College, under the mentorship of Mr Dinesh Sereno. Batch ID: ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01, Project ID: P059.
 3. **Core Problem:** Fragmented banking records, delayed reconciliation cycles (45+ days), unchecked departmental budget overruns, and vulnerability to duplicate or anomalous disbursements.
 4. **Delivered Solution:** An interactive, multi-page financial intelligence web application powered by Streamlit and styled with Tailwind CSS, offering real-time visibility into cash flow dynamics.
 5. **Architectural Foundation:** Decoupled 4-tier pipeline (Storage $\rightarrow$ Ingestion & Validation $\rightarrow$ Analytics & Statistical Engine $\rightarrow$ Presentation Layer) operating on an ACID-compliant SQLite star schema.
@@ -478,7 +480,7 @@ python src/generate_data.py
 | Role | Name | Designation / Organization | Date | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **Learner / Author** | Mohd Kaif | MCA 2nd Year, ABES Engineering College | 18-Nov-2026 | **APPROVED** |
-| **Academic Mentor** | Prof. Shilpa Tyagi | Department of MCA, ABES Engineering College | 18-Nov-2026 | **REVIEWED** |
+| **Academic Mentor** | Mr Dinesh Sereno | Department of MCA, ABES Engineering College | 18-Nov-2026 | **REVIEWED** |
 | **Industry Reviewer** | NexGen Technical Lead | Financial Analytics Division, NexGen Pvt. Ltd. | 18-Nov-2026 | **BASELINE ACCEPTED** |
 
 ---

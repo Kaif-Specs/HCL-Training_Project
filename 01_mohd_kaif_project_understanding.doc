@@ -114,8 +114,9 @@ tr:nth-child(even) {
 <div class='meta-box'>
     <table>
         <tr><td style='width: 25%; font-weight: bold;'>Project Title:</td><td>Credit vs Debit Transaction Analysis</td><td style='width: 25%; font-weight: bold;'>Target Domain:</td><td>Data Analysis / Banking & Fintech</td></tr>
-        <tr><td style='font-weight: bold;'>Student Name:</td><td>Mohd Kaif</td><td style='font-weight: bold;'>University Roll No:</td><td>2503201450093</td></tr>
-        <tr><td style='font-weight: bold;'>Academic Mentor:</td><td>Prof. Shilpa Tyagi</td><td style='font-weight: bold;'>Target Organization:</td><td>NexGen Technologies Pvt. Ltd., Noida (500 Employees)</td></tr>
+        <tr><td style='font-weight: bold;'>Student Name:</td><td>Mohd Kaif</td><td style='font-weight: bold;'>University Roll No:</td><td>2500320140093</td></tr>
+        <tr><td style='font-weight: bold;'>Academic Mentor:</td><td>Mr Dinesh Sereno</td><td style='font-weight: bold;'>Target Organization:</td><td>NexGen Technologies Pvt. Ltd., Noida (500 Employees)</td></tr>
+        <tr><td style='font-weight: bold;'>Project ID:</td><td>P059</td><td style='font-weight: bold;'>Batch ID:</td><td>ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01</td></tr>
     </table>
 </div>
 
@@ -241,11 +242,11 @@ tr:nth-child(even) {
     <tr><td><strong>Test Coverage</strong></td><td>&ge; 90% code coverage across data ingestion, calculation, and anomaly detection modules.</td><td>Pytest test execution report and coverage metrics.</td></tr>
     <tr><td><strong>Data Integrity</strong></td><td>Zero null values in primary keys; foreign key constraints strictly enforced in SQLite schema.</td><td>Schema validation queries and automated ingest assertions.</td></tr>
     <tr><td><strong>User Accessibility</strong></td><td>Zero deployment crash; public Streamlit Community Cloud URL accessible on modern web browsers.</td><td>Live cloud deployment verification and cross-browser testing.</td></tr>
-    <tr><td><strong>Academic Evaluation</strong></td><td>100% compliance with ABES project guidelines, full bidirectional traceability, and defensible viva presentation.</td><td>Formal review and sign-off by Academic Mentor (Prof. Shilpa Tyagi).</td></tr>
+    <tr><td><strong>Academic Evaluation</strong></td><td>100% compliance with ABES project guidelines, full bidirectional traceability, and defensible viva presentation.</td><td>Formal review and sign-off by Academic Mentor (Mr Dinesh Sereno).</td></tr>
 </table>
 
 <div style='margin-top: 30px; padding-top: 15px; border-top: 1px solid #94a3b8; font-size: 9pt; color: #64748b; text-align: center;'>
-    <p>Document Ref: STEP-01-PU-2026 | Prepared by: Mohd Kaif (Roll: 2503201450093) | MCA 2nd Year, ABES Engineering College</p>
+    <p>Document Ref: STEP-01-PU-2026 | Prepared by: Mohd Kaif (Roll: 2500320140093) | Project ID: P059 | Batch: ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01 | MCA 2nd Year, ABES Engineering College</p>
 </div>
 
 </body>

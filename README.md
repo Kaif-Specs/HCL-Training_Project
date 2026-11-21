@@ -13,10 +13,12 @@
 
 ## 🏛️ Academic & Institutional Credentials
 - **Learner / Author:** Mohd Kaif
-- **University Roll Number:** `2503201450093`
+- **University Roll Number:** `2500320140093`
+- **Batch ID:** `ABES_OND26 MCA 2ND YEAR_DATA ANALYTICS_BATCH 01`
+- **Project ID:** `P059`
+- **Academic Mentor:** Mr Dinesh Sereno
 - **Academic Program:** Master of Computer Applications (MCA) — 2nd Year Data Analytics
 - **Institution:** ABES Engineering College, Ghaziabad
-- **Academic Mentor:** Prof. Shilpa Tyagi
 - **Target Organization:** NexGen Technologies Pvt. Ltd., Noida (500-Employee IT Services Firm)
 - **Project Tracking Code:** `BUILD-PLAN-v1.0-2026-11`
 
@@ -209,7 +211,7 @@ d:\HCL_Project\
 | Role | Signatory | Affiliation / Organization | Status |
 | :--- | :--- | :--- | :--- |
 | **Learner** | Mohd Kaif | MCA 2nd Year, ABES Engineering College | **APPROVED** |
-| **Academic Mentor** | Prof. Shilpa Tyagi | Department of MCA, ABES Engineering College | **REVIEWED** |
+| **Academic Mentor** | Mr Dinesh Sereno | Department of MCA, ABES Engineering College | **REVIEWED** |
 | **Enterprise Sponsor** | NexGen Technical Lead | Financial Analytics Division, NexGen Pvt. Ltd. | **ACCEPTED** |
 
 ---
